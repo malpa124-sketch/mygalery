@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Gallery</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0a0f1f, #1b1f38);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      transition: all 0.6s ease;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255,255,255,0.05);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+      width: 90%;
+      max-width: 500px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #ff4b5c;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 10px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff758f;
+    }
+
+    /* Halaman biodata */
+    .biodata {
+      display: none;
+      text-align: left;
+      background: rgba(255,255,255,0.05);
+      padding: 30px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 600px;
+      position: relative;
+    }
+
+    .photo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+    }
+
+    .bio-text {
+      margin-left: 140px;
+      line-height: 1.6;
+    }
+
+    .gallery {
+      display: none;
+      text-align: center;
+    }
+
+    a {
+      color: #61dafb;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Halaman Welcome -->
+  <div class="container" id="welcome">
+    <h1>✨ Welcome — My Gallery ✨</h1>
+    <p>Selamat datang! Klik "Selanjutnya" untuk melihat biodata penyusun.</p>
+    <button onclick="nextPage('biodata')">Selanjutnya</button>
+  </div>
+
+  <!-- Halaman Biodata -->
+  <div class="biodata" id="biodata">
+    <img src="_MG_0842.JPG" alt="Foto penyusun" class="photo">
+    <div class="bio-text">
+      <h2>📖 Biodata Penyusun</h2>
+      <p><b>Nama:</b> M. Alpa Hadiansah</p>
+      <p><b>Asal Sekolah:</b> SMA Plus Sirojussyafi'iyyah</p>
+      <p><b>Alamat:</b> Kp. Batulawang RT 04/011, Ds. Batulawang,<br>
+         Kec. Cipanas, Kab. Cianjur, JABAR - 43253</p>
+      <button onclick="nextPage('gallery')">Lanjut ke Gallery</button>
+    </div>
+  </div>
+
+  <!-- Halaman Gallery -->
+  <div class="gallery" id="gallery">
+    <h2>🖼️ Kumpulan Gallery</h2>
+    <p>Klik link di bawah untuk melihat foto-foto dari Google Drive:</p>
+    <a href="https://drive.google.com/drive/folders/1CGjdghHoravrwTikEYqxFs6v56shM0HO?usp=drive_link" target="_blank">📂 Buka Gallery di Google Drive</a>
+  </div>
+
+  <script>
+    function nextPage(page) {
+      document.querySelectorAll('.container, .biodata, .gallery').forEach(div => div.style.display = 'none');
+      document.getElementById(page).style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
